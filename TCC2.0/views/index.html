@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/src/output.css">
+<title>Login - Empresa</title>
+</head>
+<body class="min-h-screen bg-[#F5F5F5]">
+
+
+  <!-- ---------------------------------------------------- Aba de Login ---------------------------------------------------- -->
+<section id="aba-login" class="flex items-center justify-center align-middle min-hscreen min-h-screen p-4 overflow-hidden">
+<div class="w-full max-w-7xl min-h-[800px] bg-[#0A1E33] rounded-2xl shadow-lg overflow-hidden flex items-center justify-center flex-col sm:flex-row">
+
+ <div class="w-full sm:w-1/2 flex flex-col items-center justify-center ">
+ <img src="/src/imgs/logos/Logo_semfundo.svg" alt="Logo da Empresa" class="w-32 h-32 md:w-40 md:h-40 mb-6">
+ <h2 class="text-3xl font-bold text-[#F5f5f5] text-center">Login - Empresa</h2>
+ <p class="text-center text-sm text-[#F5f5f5] mt-2">Acesse o painel administrativo</p>
+ </div>
+
+ <div class="w-full sm:w-1/2 flex flex-col items-center justify-center p-8 sm:p-12 sm:border-l sm:border-gray-200">
+ <form id="login-form" class="w-full max-w-sm flex flex-col items-center gap-4">
+ <input id="cnpj-input" type="number" placeholder="CNPJ" class="w-full h-10 border bg-[#f5f5f5] border-black rounded px-4 text-black  focus:outline-none focus:ring-2 focus:ring-[#F0A500]">
+ <input id="password-input" type="password" placeholder="Password" class="w-full h-10 border bg-[#f5f5f5] border-black rounded px-4 text-black focus:outline-none focus:ring-2 focus:ring-[#F0A500]">
+ <button type="submit" class="w-full h-10 bg-[#F0A500] text-white rounded hover:bg-amber-600 hover:cursor-pointer transition duration-300 ease-in-out">Login</button>
+</form>
+</div>
+</div>
+</section>
+
+
+<!-- DASHBOARD -->
+<div id="aba-dashboard" class="hidden bg-[#f5f5f5] grid h-screen grid-cols-[230px_1fr] grid-rows-[100px_1fr]">
+        <div class="col-start-2 row-start-1">
+            <div class="w-full">
+                <header class="shadow-sm flex items-center justify-around p-6 border-b border-gray-300">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xl font-bold text-yellow-500">Nome da Aba(Canada ou DUDU)</span>
+                    </div>
+                    <div class="flex flex-1 mx-auto relative pl-[16.5rem] items-center">
+                        <input type="search" placeholder="Pesquisa..." class="w-[55%] pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring focus:border-blue-300">
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <a href="#">
+                            <!-- ...SVG... -->
+                        </a>
+                        <a href="#">
+                            <!-- ...SVG... -->
+                        </a>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <aside class="bg-[#121E36] text-white row-span-2 flex flex-col justify-between p-4">
+            <div>
+                <div class="flex justify-center py-8">
+                    <img src="/src/imgs/Logo_semfundo.svg" alt="Logo" class="w-[150px] h-[100px]">
+                </div>
+                <nav class="mt-20 space-y-2">
+                    <a href="#" data-menu="encomenda" class="menu-link active flex items-center space-x-3 p-3 rounded-lg text-[#f5f5f5]">
+                        <!-- ...SVG... -->
+                        <span>Encomenda</span>
+                    </a>
+                    <a id="encomendas" data-menu="motorista" href="#" class="menu-link flex items-center space-x-3 p-3 rounded-lg text-[#f5f5f5] hover:bg-blue-800">
+                        <!-- ...SVG... -->
+                        <span>Motorista</span>
+                    </a>
+                    <a id="motorista" data-menu="relatorio" href="#" class="menu-link flex items-center space-x-3 p-3 rounded-lg text-[#f5f5f5] hover:bg-blue-800">
+                        <!-- ...SVG... -->
+                        <span>Relatório</span>
+                    </a>
+                    <a id="relatorio" data-menu="funcionario" href="#" class="menu-link flex items-center space-x-3 p-3 rounded-lg text-[#f5f5f5] hover:bg-blue-800">
+                        <!-- ...SVG... -->
+                        <span>Funcionário</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="border-t border-gray-700 pt-4 space-y-2">
+                <a id="funcionarios" href="#" class="flex items-center space-x-3 p-3 rounded-lg text-white hover:bg-blue-800">
+                    <!-- ...SVG... -->
+                    <span>Configurações</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-white hover:bg-blue-800">
+                    <!-- ...SVG... -->
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+        <main class="col-start-2 row-start-auto bg-[#f5f5f5]">
+            <div id="encomendaMain" class="w-full flex flex-col h-full overflow-auto">
+                <header class="shadow-sm w-full flex flex-row items-center p-4 pl-10 justify-around border-b border-gray-300">
+                    <span class="text-xl font-bold w-[46%]" id="encomendaSubHeader">sub aba aqui(Edu ou Canadá pls)</span>
+                    <div class="w-full">
+                        <nav id="nav-abas" class="ml-13 flex space-x-1 justify-start w-[50%] p-1 bg-[#EFEFEF] rounded-2xl">
+                            <a href="#" data-aba="cadastro" class="aba-link w-[136px] h-[36px] flex justify-center items-center rounded-2xl active">Cadastro</a>
+                            <a href="#" data-aba="garagem" class="aba-link w-[136px] h-[36px]  flex justify-center items-center rounded-2xl">Garagem</a>
+                            <a href="#" data-aba="transito" class="aba-link w-[136px] h-[36px]  flex justify-center items-center rounded-2xl">Transito</a>
+                            <a href="#" data-aba="entregue" class="aba-link w-[136px] h-[36px]  flex justify-center items-center rounded-2xl">Entregue</a>
+                        </nav>
+                    </div>
+                </header>
+                <div class="w-full h-full flex justify-center items-center">
+                    <!-- Abas de conteúdo -->
+                    <div id="cadastroEncomenda" class="aba-content flex flex-col justify-center border border-[#D0D0D0] shadow-2xl rounded-lg p-10">
+                        <!-- ...formulário de cadastro... -->
+                        <form action="" method="post" class="w-full flex flex-col space-y-4">
+                            <div class="flex flex-col md:flex-row gap-4 md:gap-10 p-4">
+                                <div class="flex flex-col items-center gap-5 max-h-[32vh">
+                                    <img src="" class="w-50 h-50" alt="">
+                                    <input type="file" name="file" id="file" class="text-sm shadow-2xl bg-[#F0A500E5] rounded-2xl p-2">
+                                </div>
+                                <div class="w-full flex flex-col">
+                                    <div class="flex flex-col">
+                                        <div class="flex flex-col border border-[#D0D0D0] p-4 rounded-lg space-y-4">
+                                            <div class="flex flex-col space-y-2">
+                                                <label for="encomendaNome" class="font-semibold">Nome da Encomenda</label>
+                                                <input type="text" name="encomendaNome" id="" class="p-2 rounded-md border w-full border-[#D0D0D0] bg-[#E5E5E5]">
+                                                <label for="nomeCliente" class="font-semibold">Nome do Cliente</label>
+                                                <input type="text" name="nomeCliente" id="" class="p-2 rounded-md border w-full border-[#D0D0D0] bg-[#E5E5E5]">
+                                            </div>
+                                            <div class="flex flex-row space-x-2 gap-4">
+                                                <div class="flex flex-col space-y-2">
+                                                    <label for="numeroCliente" class="font-semibold">Contato</label>
+                                                    <input type="tel" name="numeroCliente" id="" class="p-2 rounded-md border border-[#D0D0D0] bg-white-10 w-[15vw] bg-[#E5E5E5]">
+                                                </div>
+                                                <div class="flex flex-col space-y-2">
+                                                    <label for="numeroCliente" class="font-semibold">ID</label>
+                                                    <div class="relative flex items-center w-full">
+                                                        <input type="number" name="idEncomenda" id="idEncomenda" class="w-full p-2 pr-28 rounded-md border border-[#D0D0D0] bg-[#E5E5E5]">
+                                                        <div class="absolute inset-y-0 right-0 flex items-center pr-2">
+                                                            <label for="semIdCheckbox" class="text-amber-500 text-sm font-semibold whitespace-nowrap mr-2">Sem ID</label>
+                                                            <input type="checkbox" id="semIdCheckbox" class="h-4 w-4 rounded border-gray-300 text-amber-500 focus:ring-amber-500 cursor-pointer">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col border border-gray-300 p-4 rounded-lg space-y-4 mt-10">
+                                            <div class="flex flex-row justify-center items-center gap-4">
+                                                <div class="flex flex-col space-y-2">
+                                                    <label for="" class="font-semibold">CEP</label>
+                                                    <input type="number" name="" id="" class="p-2 rounded-md border border-gray-300 bg-white-10 w-[10vw] bg-[#E5E5E5]">
+                                                </div>
+                                                <div class="flex flex-col space-y-2">
+                                                    <label for="" class="font-semibold">Nome da Rua</label>
+                                                    <input type="text" name="" id="" class="p-2 rounded-md border border-gray-300 bg-white-10 w-[20vw] bg-[#E5E5E5]">
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-row justify-center items-center gap-4">
+                                                <div class="flex flex-col space-y-2">
+                                                    <label for="" class="font-semibold">Numero da rua</label>
+                                                    <input type="number" name="" id="" class="p-2 rounded-md border border-gray-300 bg-white-10 w-[10vw] bg-[#E5E5E5]">
+                                                </div>
+                                                <div class="flex flex-col space-y-2">
+                                                    <label for="" class="font-semibold">Complemento(Opcional)</label>
+                                                    <input type="text" name="" id="" class="p-2 rounded-md border border-gray-300 bg-white-10 w-[20vw] bg-[#E5E5E5]">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="self-end bg-[#F0A500E5] p-2 w-[10vw] mt-5 rounded-2xl">Cadastrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="garagemEncomenda" class="aba-content w-full h-full hidden flex flex-col p-10 border border-[#D0D0D0]">
+                        <header class="w-full flex justify-center items-center">
+                            <div class="flex flex-col justify-center items-center h-30 w-[30%] border border-gray-300">
+                                <h3 class="font-semibold">Total de Encomendas na Garagem</h3>
+                                <span class="text-2xl text-gray-400">49</span>
+                            </div>
+                        </header>
+                        <div class="tabela-scroll" style="max-height: 600px; overflow-y: auto;">
+                            <table class="min-w-full border border-gray-300 rounded-2xl mt-4">
+                                <thead class="bg-gray-200">
+                                    <tr class="h-14">
+                                        <th class="py-2 px-4 border-b border-gray-300" style="position: sticky; top: 0; background: #e5e7eb; z-index: 1;"></th>
+                                        <th class="py-2 px-4 border-b border-gray-300" style="position: sticky; top: 0; background: #e5e7eb; z-index: 1;">Nome</th>
+                                        <th class="py-2 px-4 border-b border-gray-300" style="position: sticky; top: 0; background: #e5e7eb; z-index: 1;">Contato</th>
+                                        <th class="py-2 px-4 border-b border-gray-300" style="position: sticky; top: 0; background: #e5e7eb; z-index: 1;">Cadastro</th>
+                                        <th class="py-2 px-4 border-b border-gray-300" style="position: sticky; top: 0; background: #e5e7eb; z-index: 1;">Edição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-gray-100 text-center h-full">
+                                        <td class="py-2 px-4 border-b border-gray-300 text-center">
+                                            <img src="/src/imgs/Logo_semfundo.svg" alt="Imagem" class="w-12 h-12 mx-auto">
+                                        </td>
+                                        <td>
+                                            <div class="flex flex-col items-center gap-2 justify-center border-b border-gray-300 py-2 px-4">
+                                                <div><span class="font-semibold">Nome aqui</span></div>
+                                                <div><span>Id aqui:9999</span></div>
+                                            </div>
+                                        </td>
+                                        <td class="py-2 px-4 border-b border-gray-300 text-center">(11) 91234-5678</td>
+                                        <td class="py-2 px-4 border-b border-gray-300 text-center">João Silva</td>
+                                        <td class="py-2 px-4 border-b border-gray-300 text-center"><button class="text-[#F0A500] font-semibold hover:cursor-pointer">Editar</button></td>
+                                    </tr>
+
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="transitoEncomenda" class="aba-content hidden flex flex-col justify-center border border-[#D0D0D0] shadow-2xl rounded-lg p-10">
+                        <h2 class="text-xl font-bold mb-4">Conteúdo de Trânsito</h2>
+                    </div>
+                    <div id="entregueEncomenda" class="aba-content hidden flex flex-col justify-center border border-[#D0D0D0] shadow-2xl rounded-lg p-10">
+                        <h2 class="text-xl font-bold mb-4">Conteúdo de Entregue</h2>
+                    </div>
+                </div>
+            </div>
+            <div id="motoristaMain" class="hidden w-full h-full flex justify-center items-center">
+                Motorista
+            </div>
+            <div id="relatorioMain" class="hidden w-full h-full flex justify-center items-center">
+                Relatório
+            </div>
+            <div id="funcionarioMain" class="hidden w-full h-full flex justify-center items-center">
+                Funcionário
+            </div>
+        </main>
+    </div>
+
+
+
+<script>
+const loginForm = document.getElementById('login-form');
+const cnpjInput = document.getElementById('cnpj-input');
+ const passwordInput = document.getElementById('password-input');
+ const abaLogin = document.getElementById('aba-login');  const abaDashboard = document.getElementById('aba-dashboard');
+
+loginForm.addEventListener('submit', (e) => { e.preventDefault(); // Impede o envio do formulário
+
+ // Exemplo de validação simples
+const cnpj = cnpjInput.value;
+ const password = passwordInput.value;
+
+ // Valide os campos aqui. Exemplo: se ambos não estiverem vazios.
+if (cnpj.trim() !== '' && password.trim() !== '') {
+// Simulação de uma validação bem-sucedida
+ 
+// Esconde a aba de login
+ abaLogin.classList.add('hidden');
+
+// Mostra a aba do dashboard
+ abaDashboard.classList.remove('hidden');
+
+ // Opcional: Limpar os campos do formulário
+ loginForm.reset();
+
+ } else {
+ // Exemplo de mensagem de erro
+ alert('Por favor, preencha todos os campos.');
+ }  });
+
+
+// Função para definir abas iniciais
+    function setInitialTabs() {
+        // Aside: mostra só encomendaMain
+        document.querySelectorAll('main > div').forEach(c => c.classList.add('hidden'));
+        document.getElementById('encomendaMain').classList.remove('hidden');
+        document.querySelectorAll('.menu-link').forEach(l => l.classList.remove('active'));
+        document.querySelector('.menu-link[data-menu="encomenda"]').classList.add('active');
+
+        // Abas internas: mostra só cadastroEncomenda
+        document.querySelectorAll('.aba-content').forEach(c => c.classList.add('hidden'));
+        document.getElementById('cadastroEncomenda').classList.remove('hidden');
+        document.querySelectorAll('.aba-link').forEach(l => l.classList.remove('active'));
+        document.querySelector('.aba-link[data-aba="cadastro"]').classList.add('active');
+        updateAbaBackground('cadastro');
+    }
+
+    // Função para atualizar o background do <a> ativo
+    function updateAbaBackground(aba) {
+        document.querySelectorAll('.aba-link').forEach(link => {
+            link.classList.remove('bg-[#f0c15de5]', 'bg-[#f0c15de5]', 'bg-[#f0c15de5]', 'bg-[#f0c15de5]');
+        });
+        switch (aba) {
+            case 'cadastro':
+                document.querySelector('.aba-link[data-aba="cadastro"]').classList.add('bg-[#f0c15de5]');
+                break;
+            case 'garagem':
+                document.querySelector('.aba-link[data-aba="garagem"]').classList.add('bg-[#f0c15de5]');
+                break;
+            case 'transito':
+                document.querySelector('.aba-link[data-aba="transito"]').classList.add('bg-[#f0c15de5]');
+                break;
+            case 'entregue':
+                document.querySelector('.aba-link[data-aba="entregue"]').classList.add('bg-[#f0c15de5]');
+                break;
+        }
+    }
+
+    // Troca de abas internas
+    document.querySelectorAll('.aba-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.aba-link').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            document.querySelectorAll('.aba-content').forEach(c => c.classList.add('hidden'));
+            const abaId = this.getAttribute('data-aba') + 'Encomenda';
+            document.getElementById(abaId).classList.remove('hidden');
+            updateAbaBackground(this.getAttribute('data-aba'));
+        });
+    });
+
+    // Troca de menus principais do aside
+    document.querySelectorAll('.menu-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.menu-link').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            document.querySelectorAll('main > div').forEach(c => c.classList.add('hidden'));
+            const menuId = this.getAttribute('data-menu') + 'Main';
+            document.getElementById(menuId).classList.remove('hidden');
+            // Se for encomenda, mostra aba inicial interna
+            if(menuId === 'encomendaMain') {
+                document.querySelectorAll('.aba-content').forEach(c => c.classList.add('hidden'));
+                document.getElementById('cadastroEncomenda').classList.remove('hidden');
+                document.querySelectorAll('.aba-link').forEach(l => l.classList.remove('active'));
+                document.querySelector('.aba-link[data-aba="cadastro"]').classList.add('active');
+                updateAbaBackground('cadastro');
+            }
+        });
+    });
+
+    // Chama ao carregar a página
+    setInitialTabs();
+
+
+</script>
+
+</body>
+</html>
